@@ -1,0 +1,179 @@
+/* Import Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+    --primary: #00d2ff;
+    --secondary: #92fe9d;
+    --bg-dark: #131b2c;
+    --glass: rgba(255, 255, 255, 0.1); /* Menggunakan alpha 0.1 untuk efek kaca yang lebih bersih */
+    --text-muted: #94a3b8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: var(--bg-dark);
+    overflow: hidden;
+    color: #fff;
+}
+
+/* Dekorasi Background - Diambil dari HomePage.css & SingUp.css */
+.background-decor .circle {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: -1;
+    animation: move 10s infinite alternate;
+}
+
+.background-decor .circle:nth-child(1) {
+    width: 300px;
+    height: 300px;
+    background: var(--primary);
+    top: -50px;
+    left: -50px;
+}
+
+.background-decor .circle:nth-child(2) {
+    width: 250px;
+    height: 250px;
+    background: var(--secondary);
+    bottom: -50px;
+    right: -50px;
+}
+
+@keyframes move {
+    from { transform: translate(0, 0); }
+    to { transform: translate(100px, 50px); }
+}
+
+/* Container Card - Selaras dengan HomePage.css */
+.auth-card {
+    background: var(--glass);
+    backdrop-filter: blur(30px);
+    padding: 40px;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 25px 45px rgba(0,0,0,0.3);
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+    transition: 0.4s ease;
+    animation: fadeIn 0.8s ease-out; /* Animasi masuk */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.auth-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-5px);
+}
+
+.card-header h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.card-header p {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+/* Form & Input Style - Selaras dengan HomePage.css */
+.input-group {
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.input-group input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 12px 15px;
+    border-radius: 10px;
+    outline: none;
+    color: #fff;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+.input-group label {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    pointer-events: none;
+    transition: 0.3s;
+}
+
+.input-group input:focus ~ label,
+.input-group input:valid ~ label {
+    top: -10px;
+    left: 10px;
+    font-size: 0.75rem;
+    color: var(--primary);
+    background: #162033; /* Menutup garis border */
+    padding: 0 8px;
+    border-radius: 4px;
+}
+
+.input-group input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.2);
+}
+
+/* Tombol Utama - Selaras dengan HomePage.css */
+.btn-submit {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(100deg, var(--primary), var(--secondary));
+    border: none;
+    border-radius: 10px;
+    color: #0f172a;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    text-transform: uppercase;
+}
+
+.btn-submit:hover {
+    letter-spacing: 1px;
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.4);
+    filter: brightness(1.1);
+}
+
+.footer-text {
+    margin-top: 25px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.footer-text a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.footer-text a:hover {
+    text-decoration: underline;
+}
